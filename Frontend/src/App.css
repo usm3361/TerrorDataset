@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#root {
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.quizPage {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.titlePage{
+  display: inline-block;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.294);
+}
