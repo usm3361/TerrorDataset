@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Link } from "react-router";
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router";
 
 import './App.css'
+import HomePage from './pages/Home';
 import DataPage from './pages/DataPage';
 import DynamicTestPage from './pages/DynamicTestPage';
 
@@ -11,10 +12,10 @@ function App() {
   return (<>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<DataPage />} />
-        <Route path="DynamicTestPage" element={<DynamicTestPage />} />
-        
-    </Routes>
+        <Route path="home" element={<HomePage />} />
+        <Route path="/terrorData" element={<DataPage />} />
+        <Route path="dynamicTestPage" element={<DynamicTestPage />} />
+            </Routes>
     </BrowserRouter>
   </>
   )
