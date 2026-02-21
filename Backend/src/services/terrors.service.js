@@ -9,12 +9,15 @@ const dirname = path.dirname(filename);
 const CSV_PATH = path.join(dirname, "..", "data", "terrorData.csv");
 const RESULTS_PATH = path.join(dirname, "..", "score.json");
 
+
+
 export const readData = async () => {
   try {
     const csvString = await fs.readFile(CSV_PATH, "utf-8");
 
     const rows = await csv.parse(csvString, { columns: true });
-    return rows.slice(0, 51);
+    console.log(rows)
+    return rows.slice(0, 50);
   } catch (err) {
     console.log(err);
     return [];
