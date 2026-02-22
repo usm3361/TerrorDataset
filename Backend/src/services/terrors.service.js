@@ -16,7 +16,6 @@ export const readData = async () => {
     const csvString = await fs.readFile(CSV_PATH, "utf-8");
 
     const rows = await csv.parse(csvString, { columns: true });
-    console.log(rows)
     return rows.slice(0, 50);
   } catch (err) {
     console.log(err);

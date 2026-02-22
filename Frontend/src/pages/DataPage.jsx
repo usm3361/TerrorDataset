@@ -1,17 +1,17 @@
-import React from 'react'
-import Navbar from '../components/Navbar.home'
-import Rows from '../components/Rows.home'
-import Footer from '../components/Footer.home'
+import "../app.css";
+import Navbar from "../components/Navbar";
+import Table from "../components/Table";
 
-const DataPage = () => {
+const DataPage = ({ter}) => {
+
   return (
-    <div className='homePage'>
-          <h1 className='titlePage'>Terror Data System</h1>
-          <Navbar />
-          <Rows />
-          <Footer />
+    <div className="dataPage">
+      <Navbar />
+      <h1 className="titlePage">Terror Data System</h1>
+      {ter && <Table ter={ter} />}
     </div>
-  )
-}
+  );
+};
 
-export default DataPage
+
+export default DataPage;

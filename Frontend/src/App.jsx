@@ -1,24 +1,42 @@
-import { useState, useEffect } from 'react'
+import { useContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import './App.css'
-import HomePage from './pages/Home';
-import DataPage from './pages/DataPage';
-import DynamicTestPage from './pages/DynamicTestPage';
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import DataPage from "./pages/DataPage";
+import DynamicTestPage from "./pages/DynamicTestPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [ter, setTer] = useState();
+    const url = `http://localhost:8000/api/terrorists`;
+  
+    useEffect(() => {
+      async function loadDataTer() {
+        try {
+          
+          const response = await fetch(url);
+          const data = await response.json();
+          setTer(data);
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      loadDataTer();
+    }, []);
 
-  return (<>
-    <BrowserRouter>
-      <Routes>
-        <Route path="home" element={<HomePage />} />
-        <Route path="/terrorData" element={<DataPage />} />
-        <Route path="dynamicTestPage" element={<DynamicTestPage />} />
-            </Routes>
-    </BrowserRouter>
-  </>
-  )
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<HomePage />} />
+            <Route path="/terrorData" element={<DataPage ter={ter} />} />
+            <Route path="/dynamicTestPage" element={<DynamicTestPage ter={ter} />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;
