@@ -13,7 +13,6 @@ const Question = ({ ter }) => {
     );
 
     const shuffled = availableFields.sort(() => 0.5 - Math.random());
-
     const [f1, f2, fTarget] = shuffled;
 
     return {
@@ -34,16 +33,19 @@ const Question = ({ ter }) => {
       <h3 className="question-text">{currentQuestion.display}</h3>
       <div className="input">
         <label htmlFor="answer">answer is:</label>
-        <input type="text" id="answer" placeholder="plaese enter your answer:"/>
+        <input
+          type="text"
+          id="answer"
+          placeholder="plaese enter your answer:"
+        />
       </div>
 
       <div className="action-area">
-        <button className="refresh-btn" onClick={handleNewQuestion}>
+        <button className="btn">check answer</button>
+        <button className="btn refresh-btn" onClick={handleNewQuestion}>
           New Question
         </button>
       </div>
-
-      {/* Logic Note: You can now compare user input to currentQuestion.answer */}
     </div>
   );
 };
